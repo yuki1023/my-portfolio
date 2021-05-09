@@ -4,11 +4,102 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
-    <link rel="stylesheet" href="style.css" />
     <title>My Portfolio yuki</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <link rel='stylesheet' href='./style.css'>
+    <link rel="stylesheet" href="./lightbox.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,500,900&amp;subset=japanese" rel="stylesheet">
+    <script src="./lightbox.js"></script>
   </head>
   <body>
+
+    <!-- セクションです。１つのまとまりを表す際に使います。 -->
+    <section class="hero fd-in" id="hero">
+    <h1>Higuchi Yuki</h1>
+    <p>樋口裕貴の自己紹介ページです</p>
+   </section> 
+
+  <section class="about fd-in" id="about">
+
+    <h2 class="section__title">
+      Introduction
+    </h2>
+
+    <p class="section__title--description">樋口裕貴について</p>
+
+    <div class="about__container">
+
+      <div class="about__image">
+        <img src="images/IMG_6786.JPG" alt="自分">
+      </div>
+
+      <div class="about__text">
+        <p>こんにちは！樋口裕貴です！このページでは樋口裕貴とはについてご紹介します。是非このページを見て樋口裕貴とは一体どのような人物なのか覚えていってください。全て見たあなたは樋口裕貴マスターになることを保証します。もし、趣味や特技の共通点がありましたら気軽に教えてください！</p>
+      </div>
+
+    </div>
+    
+  </section>
+
+  <section class="profile fd-in" id="point">
+    <h2 class="section__title">
+      Profile
+    </h2>
+    <p class="section__title--description">プロフィール</p>
+
+    <!-- リストの親要素です。ul , olの中に子要素として<li></li>を使います。
+    1番目、2番目…というように特に順番がないものはulを。
+    そうでないもの、つまり1番目、2番目…というように順番があるものはolを使います。 -->
+
+    <ol class="point__list">
+      <li class="point__item">
+        <i>大学</i>
+        <p>立教大学理学部4年。研究室は宇宙物理学を専攻としている所に所属しています。ちなみに宇宙のことは何も知りません。</p>
+      </li>
+
+      <li class="point__item">
+        <i>趣味</i>
+        <p>スノーボードが１番の趣味です。サークルに所属しており、冬は雪山で働いていたこともあります。</p>
+      </li>
+
+      <li class="point__item">
+        <i>特技</i>
+        <p>特技は水泳です。小中高と合わせて15年近くやっていました。全国大会にも出場してことがあります。現在はプールの監視員のバイトをしています。</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="gallery fd-in" id="gallery">
+
+    <h2 class="section__title" >
+      Galley
+    </h2>
+    <p class="section__title--description">お気に入りの写真</p>
+    <ul class="gallery__list">
+
+      <!-- srcの中に画像の存在場所を入力しましょう。 -->
+<!-- ここで覚えていただきたいのはアクセシビリティの観点から必ずaltタグを入れていただくということです。 -->
+      <li class="gallery__item"><a class="image-link" href="images/IMG_6611.JPG" data-lightbox="image-set" data-title="1枚目の画像"><img
+        src="images/IMG_6611.JPG" alt="1"></a>
+      </li>
+      <li class="gallery__item"><a class="image-link" href="images/IMG_4489.JPG" data-lightbox="image-set" data-title="2枚目の画像"><img
+        src="images/IMG_4489.JPG" alt="2"></a>
+      </li>
+      <li class="gallery__item"><a class="image-link" href="images/IMG_4142.JPG" data-lightbox="image-set" data-title="3枚目の画像"><img
+        src="images/IMG_4142.JPG" alt="3"></a>
+      </li>
+      <li class="gallery__item"><a class="image-link" href="images/IMG_2834.JPG" data-lightbox="image-set" data-title="4枚目の画像"><img
+        src="images/IMG_2834.JPG" alt="4"></a>
+      </li>
+      <li class="gallery__item"><a class="image-link" href="images/IMG_2444.jpg" data-lightbox="image-set" data-title="5枚目の画像"><img
+        src="images/IMG_2444.jpg" alt="5"></a>
+      </li>
+      <li class="gallery__item"><a class="image-link" href="images/image2.JPG" data-lightbox="image-set" data-title="6枚目の画像"><img
+        src="images/image2.JPG" alt="6"></a>
+      </li>
+    </ul>
+  </section>
+
     <script src="main.js"></script>
   </body>
 </html>

@@ -1,0 +1,263 @@
+// 変数としてカラーコードを持たせることができます。
+$bg-gray: #f7f7f7;
+$bg-footer: #444;
+
+// 継承したいものを定義します。見出しのものは一部で実際は中身として、このようなものを含んでいます。
+%section-padding {
+  padding: 100px 20%;
+
+//   画面の横幅が1280px以下になったときに、ここにスタイルと書いているときのスタイルを適用させることができます。
+  @media (max-width: 1280px) {
+    // paddingは一言でいうとお腹の脂肪のようなものと覚えると分かりやすいです。
+    //　上下に80pxの余白、左右に10%の余白
+    padding: 80px 10%;
+  }
+
+  @media (max-width: 768px) {
+    padding: 80px 5%;
+  }
+}
+
+html,
+body {
+    // どのフォントを使用するかを指定しています。
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+
+section {
+  // div要素にoverflow: hidden;を指定すると意図したとおりに余白をつけることができ
+  overflow: hidden;
+  // 滑らかに動くようにしたい際などに使う
+  transition: .8s;
+}
+
+.section {
+  &__title {
+    // 文字の大きさ
+    font-size: 48px;
+    // 文字を中央寄せ
+    text-align: center;
+
+    &--description {
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.hero {
+  padding: 180px 10% 200px;
+  // 背景色グラデーション
+  background-image: linear-gradient(-45deg, #96ffd7 0%, #6bd0ff 100%);
+  // 文字色
+  color: #fff;
+
+  h1 {
+    font-size: 80px;
+    line-height: 1;
+    font-weight: 900;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 500;
+
+    @media (max-width: 768px) {
+      line-height: 1.5;
+    }
+  }
+
+//   aタグを含む各要素の子要素として作成される疑似要素です。
+// 要素に装飾を施したい際などに使用します。
+  a {
+    display: inline-block;
+    background: rgb(42, 46, 43)fff;
+    padding: 15px 40px 15px 20px;
+    margin: 40px 0 0;
+    font-size: 18px;
+    font-weight: 900;
+    color: #6bc9ff;
+    // テキストに下線などの装飾を施すかどうか指定するスタイル
+    text-decoration: none;
+    // 滑らかに動くようにしたい際などに使う
+    transition: .5s;
+    border: 2px solid #fff;
+    // divなどの要素がどのように配置されるのか指定する
+    // relative 親要素で基準点として定義したいときに用いることが多い
+    position: relative;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+
+    &::after {
+      position: absolute; //absoluteを使用し、相対的な配置が出来るようにする
+      content: ""; //【重要】これを入れ忘れると表示されない
+      right: 20px; //親要素の右端から20px
+      width: 8px; //横幅は8px
+      height: 8px; //縦幅は8px
+      top: calc(50% - 4px); //親要素の上端から50% - 4px
+
+//       線を描画するスタイルです。
+// border: 2px solid #fff;の場合だと左右上下に太さ2pxの白い線を描画します。
+      border-top: 2px solid #6be9ff;  //太さ2pxピンク色の実線を上に描画
+      border-right: 2px solid #6be1ff; //太さ2pxピンク色の実線を右に描画
+      -webkit-transform: rotate(45deg);  //45°回転
+      transform: rotate(45deg); //45°回転
+    }
+
+    // マウスを乗せた際のスタイル
+    &:hover {
+      background: #6bc4ff;
+      color: #fff;
+
+      &::after {
+        border-color: #fff;
+      }
+    }
+  }
+}
+
+.about {
+  @extend %section-padding;
+  background: $bg-gray;
+
+  &__container {
+    display: flex;
+
+    // display: flexの要素が溢れたときに改行させるスタイルです。
+    // この指定がないと溢れてしまう場合でも改行されずに横幅が狭くなる形で表示されます。
+    flex-wrap: wrap;
+  }
+
+  &__image {
+    width: 50%;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__text {
+    width: 50%;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+
+    p {
+      line-height: 2;
+      margin-left: 50px;
+      font-size: 18px;
+      font-weight: 500;
+
+      @media (max-width: 768px) {
+        margin: 20px 0 0;
+      }
+    }
+  }
+}
+
+.point {
+  @extend %section-padding;
+
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+
+//     olやulといったリストの要素には通常は・や1が表示されます。
+// これらのリストスタイルを指定するのがlist-style-type
+    list-style-type: none;
+  }
+
+  &__item {
+    text-align: center;
+    // 計算式を用いることが出来るようになり
+    width: calc((100% / 3) - 14px);
+
+    &:not(:first-child) {
+      margin-left: 21px;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+
+      &:not(:first-child) {
+        margin: 30px 0 0;
+      }
+    }
+
+    i {
+      font-size: 20px;
+      font-weight: 900;
+      width: 50px;
+      border-bottom: 4px solid #000;
+      display: inline-block;
+      text-align: center;
+      padding: 0 0 8px;
+      margin: 0 0 20px;
+    }
+
+    p {
+      text-align: left;
+      font-size: 18px;
+    }
+  }
+}
+
+.gallery {
+  @extend %section-padding;
+
+  &__list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    width: calc(50% - 10px);
+
+    // 複数liが並んでいる際に、
+// 最初の2つ以外のものにスタイルを指定したいとき
+    &:not(:nth-child(-n+2)) {
+      margin-top: 20px;
+    }
+
+    // 複数liが並んでいる際に、
+// 偶数番目のものにスタイルを指定したいとき
+    &:nth-child(2n) {
+      margin-left: 20px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    a {
+      transition: .5s;
+
+      // 影をつけるスタイル
+      &:hover {
+        opacity: .7;
+
+        img {
+          box-shadow: 0 0 15px rgba(0, 0, 0, .15);
+        }
+      }
+    }
+  }
+}
+
+
