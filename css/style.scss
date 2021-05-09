@@ -261,3 +261,20 @@ section {
 }
 
 
+.cta {
+
+  @extend %section-padding;
+
+  &__btn {
+    text-align: center;
+
+  }
+
+}
+
+
+
+
+
+
+

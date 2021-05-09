@@ -1,15 +1,15 @@
-.about, .point, .gallery {
+.about, .point, .gallery, .cta {
   padding: 100px 20%;
 }
 
 @media (max-width: 1280px) {
-  .about, .point, .gallery {
+  .about, .point, .gallery, .cta {
     padding: 80px 10%;
   }
 }
 
 @media (max-width: 768px) {
-  .about, .point, .gallery {
+  .about, .point, .gallery, .cta {
     padding: 80px 5%;
   }
 }
@@ -235,5 +235,9 @@ section {
 .gallery__item a:hover img {
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.cta__btn {
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */

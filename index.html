@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio yuki</title>
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
-    <link rel='stylesheet' href='./style.css'>
-    <link rel="stylesheet" href="./lightbox.css">
+    <link rel='stylesheet' href='css/style.css'>
+    <link rel="stylesheet" href="css/lightbox.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,500,900&amp;subset=japanese" rel="stylesheet">
-    <script src="./lightbox.js"></script>
+    <script src="js/lightbox.js"></script>
   </head>
   <body>
 
     <!-- セクションです。１つのまとまりを表す際に使います。 -->
     <section class="hero fd-in" id="hero">
-    <h1>Higuchi Yuki</h1>
+    <h1 id = "higu" >Higuchi Yuki</h1>
     <p>樋口裕貴の自己紹介ページです</p>
    </section> 
 
@@ -100,6 +100,26 @@
     </ul>
   </section>
 
-    <script src="main.js"></script>
+
+  <section class="cta fd-in" id="cta">
+    <h2 class="section__title" >
+      LIKE Button
+    </h2>
+    <p class="section__title--description">ひたすらボタンを押そう！</p>
+
+    <div>
+      <h2 id="display">0</h2>
+    </div>
+    
+    <div　class="cta__btn">
+      <button class="button1" id="like+1">好き</button>
+
+    </div>
+
+  </section>
+
+    <script src="js/lightbox.js"></script>
+    <script src="js/main.js"></script>
+
   </body>
 </html>
